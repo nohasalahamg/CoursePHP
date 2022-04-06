@@ -5,6 +5,7 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
     $name     = $_POST['name'];
    $email    = $_POST['email'];
    $password = $_REQUEST['password'];
+     $address = $_REQUEST['address'];
    $url      = $_POST['url'];
    $errors = []; 
 
@@ -24,12 +25,12 @@ if($_SERVER['REQUEST_METHOD']== "POST"){
     $errors['Email']  = "Please Enter Format Email"; 
    }
  
-   $number    = preg_match('@[0-9]@', $password);
+
      # VALIDATE password 
      if(empty($password)){
  
          $errors['Password']  = "Required"; 
-       }elseif($number < 6){
+       }elseif(strlen($address)<6 ){
         $errors['Password']  = "Please Enter password Atleast 6 character"; 
        }
 
